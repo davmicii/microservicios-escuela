@@ -6,7 +6,7 @@ spring:
     config:
       server:
         git:
-          default-label: config-server
+          default-label: gateway
           uri: https://github.com/davmicii/microservicios-escuela
           search-paths: config-data
   application:
