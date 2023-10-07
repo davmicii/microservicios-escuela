@@ -1,0 +1,12 @@
+spring:
+  application:
+    name: alumno-service
+  cloud:
+    config:
+      enabled: true
+      uri: http://localhost:8081
+  datasource:
+    url: jdbc:sqlserver://localhost:1433;databaseName=Escuela;trustServerCertificate=true
+    username: sa
+    password: danvelmi1999
+    driverClassName: com.microsoft.sqlserver.jdbc.SQLServerDriver
