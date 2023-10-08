@@ -4,17 +4,16 @@ import com.escuela.authservice.dto.TokenDto;
 import com.escuela.authservice.dto.UsuarioDto;
 import com.escuela.authservice.entitie.Usuario;
 import com.escuela.authservice.service.UsuarioService;
-import org.apache.coyote.Response;
-import org.apache.el.parser.Token;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/auth")
+@RequiredArgsConstructor
 public class UsuarioController {
-    @Autowired
-    UsuarioService usuarioService;
+    private final UsuarioService usuarioService;
 
     @PostMapping("/login")
     public ResponseEntity<TokenDto> login(@RequestBody UsuarioDto dto){

@@ -27,10 +27,14 @@ spring:
           uri: lb://materia-service
           predicates:
             - Path=/materia/**
+          filters:
+            - AuthFilter
         - id: alumno-service
           uri: lb://alumno-service
           predicates:
             - Path=/alumno/**
+          filters:
+            - AuthFilter
         - id: auth-service
           uri: lb://auth-service
           predicates:
