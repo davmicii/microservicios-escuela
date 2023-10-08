@@ -6,6 +6,16 @@ import lombok.Data;
 @Data
 @Builder
 public class UsuarioDto {
+    private Long idUsuario;
+
+    public Long getIdUsuario() {
+        return idUsuario;
+    }
+
+    public void setIdUsuario(Long idUsuario) {
+        this.idUsuario = idUsuario;
+    }
+
     private String correo;
     private String contrasenia;
 

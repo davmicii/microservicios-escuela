@@ -10,7 +10,6 @@ import org.springframework.data.relational.core.mapping.Table;
 @Builder
 @Data
 public class Usuario {
-    public Usuario(){}
     @Id
     private Long idUsuario;
     @Column
@@ -18,12 +17,14 @@ public class Usuario {
     @Column
     private String contrasenia;
 
-    public Long getId() {
+    public Usuario(){}
+
+    public Long getIdUsuario() {
         return idUsuario;
     }
 
-    public void setId(Long id) {
-        this.idUsuario = id;
+    public void setIdUsuario(Long idUsuario) {
+        this.idUsuario = idUsuario;
     }
 
     public String getCorreo() {

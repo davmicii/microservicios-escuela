@@ -109,7 +109,7 @@ public class UsuarioRepository {
 
             while (resultSet.next()) {
                 Usuario usuario = new Usuario();
-                usuario.setId(resultSet.getLong("idUsuario"));
+                usuario.setIdUsuario(resultSet.getLong("idUsuario"));
                 usuario.setCorreo(resultSet.getString("correo"));
                 usuario.setContrasenia(resultSet.getString("contrasenia"));
                 usuarios.add(usuario);
@@ -131,6 +131,7 @@ public class UsuarioRepository {
 
             if (resultSet.next()) {
                 Usuario usuario = new Usuario();
+                usuario.setIdUsuario(resultSet.getLong("idUsuario"));
                 usuario.setCorreo(resultSet.getString("correo"));
                 usuario.setContrasenia(resultSet.getString("constrasenia"));
                 return Optional.of(usuario);

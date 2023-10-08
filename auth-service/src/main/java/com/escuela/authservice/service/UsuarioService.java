@@ -30,6 +30,7 @@ public class UsuarioService {
             return null;
         String password = passwordEncoder.encode(dto.getContrasenia());
         Usuario usuario = Usuario.builder()
+                .idUsuario(dto.getIdUsuario())
                 .correo(dto.getCorreo())
                 .contrasenia(password)
                 .build();
