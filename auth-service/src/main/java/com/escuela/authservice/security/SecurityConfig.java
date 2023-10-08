@@ -20,18 +20,17 @@ import org.springframework.security.web.SecurityFilterChain;
 @EnableWebSecurity
 @RequiredArgsConstructor
 public class SecurityConfig{
-
-    public SecurityFilterChain filterChain(HttpSecurity httpSecurity) throws Exception {
-        return httpSecurity
-                .csrf(csrf -> csrf.disable())
-                .authorizeHttpRequests(auth -> auth
-                        .requestMatchers("/auth/**").permitAll()
-                        .anyRequest().authenticated()
-                )
-                .sessionManagement(sess -> sess.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
-                .oauth2ResourceServer((oauth2) -> oauth2.jwt(Customizer.withDefaults()))
-                .httpBasic(Customizer.withDefaults())
+    @Bean
+    public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception{
+        return http
+                .csrf(csrf ->
+                    csrf
+                    .disable())
+                .authorizeHttpRequests(authRequest ->
+                        authRequest
+                            .requestMatchers("/auth/**").permitAll()
+                            .anyRequest().authenticated())
+                .formLogin(Customizer.withDefaults())
                 .build();
     }
-
 }
