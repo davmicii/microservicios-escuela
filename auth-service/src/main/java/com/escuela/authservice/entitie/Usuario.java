@@ -1,12 +1,16 @@
 package com.escuela.authservice.entitie;
 
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.relational.core.mapping.Column;
 import org.springframework.data.relational.core.mapping.Table;
 
 @Table("Usuario")
+@NoArgsConstructor
+@AllArgsConstructor
 @Builder
 @Data
 public class Usuario {
@@ -17,29 +21,5 @@ public class Usuario {
     @Column
     private String contrasenia;
 
-    public Usuario(){}
-
-    public Long getIdUsuario() {
-        return idUsuario;
-    }
-
-    public void setIdUsuario(Long idUsuario) {
-        this.idUsuario = idUsuario;
-    }
-
-    public String getCorreo() {
-        return correo;
-    }
-
-    public void setCorreo(String correo) {
-        this.correo = correo;
-    }
-
-    public String getContrasenia() {
-        return contrasenia;
-    }
-
-    public void setContrasenia(String contrasenia) {
-        this.contrasenia = contrasenia;
-    }
+    //public Usuario() {}
 }
