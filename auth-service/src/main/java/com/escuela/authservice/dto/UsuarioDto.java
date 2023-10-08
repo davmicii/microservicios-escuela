@@ -7,6 +7,14 @@ import lombok.Data;
 @Builder
 public class UsuarioDto {
     private Long idUsuario;
+    private String correo;
+    private String contrasenia;
+
+    public UsuarioDto(Long idUsuario, String correo, String contrasenia) {
+        this.idUsuario = idUsuario;
+        this.correo = correo;
+        this.contrasenia = contrasenia;
+    }
 
     public Long getIdUsuario() {
         return idUsuario;
@@ -15,10 +23,6 @@ public class UsuarioDto {
     public void setIdUsuario(Long idUsuario) {
         this.idUsuario = idUsuario;
     }
-
-    private String correo;
-    private String contrasenia;
-
     public String getCorreo() {
         return correo;
     }
