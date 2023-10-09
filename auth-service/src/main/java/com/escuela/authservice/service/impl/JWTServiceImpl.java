@@ -52,7 +52,7 @@ public class JWTServiceImpl implements JWTService {
     }
 
     private Key getSiginKey(){
-        byte[] key = Decoders.BASE64.decode(secret);
+        byte[] key = Decoders.BASE64.decode("secret1234567890");
         return Keys.hmacShaKeyFor(key);
     }
 
