@@ -131,9 +131,8 @@ public class UsuarioRepository {
 
             if (resultSet.next()) {
                 Usuario usuario = new Usuario();
-                usuario.setIdUsuario(resultSet.getLong("idUsuario"));
                 usuario.setCorreo(resultSet.getString("correo"));
-                usuario.setContrasenia(resultSet.getString("constrasenia"));
+                usuario.setContrasenia(resultSet.getString("contrasenia"));
                 return Optional.of(usuario);
             } else {
                 return Optional.empty();
