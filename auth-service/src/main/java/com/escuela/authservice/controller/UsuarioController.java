@@ -20,7 +20,7 @@ public class UsuarioController {
         return ResponseEntity.ok(authenticationService.signup(signUpRequest));
     }
 
-    @PostMapping("register")
+    @PostMapping("/register")
     public ResponseEntity<JwtAuthenticationResponse> signin(@RequestBody SignInRequest signInRequest){
         return ResponseEntity.ok(authenticationService.signin(signInRequest));
     }
