@@ -27,11 +27,11 @@ public class Usuario implements UserDetails {
     @Column
     private String contrasenia;
 
-    private Role role;
+    //private Role role;
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return List.of(new SimpleGrantedAuthority(role.name()));
+        return null;
     }
 
     @Override

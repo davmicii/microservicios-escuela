@@ -3,7 +3,6 @@ package com.escuela.authservice.service.impl;
 import com.escuela.authservice.dto.JwtAuthenticationResponse;
 import com.escuela.authservice.dto.SignInRequest;
 import com.escuela.authservice.dto.SignUpRequest;
-import com.escuela.authservice.entitie.Role;
 import com.escuela.authservice.entitie.Usuario;
 import com.escuela.authservice.repository.UsuarioRepository;
 import com.escuela.authservice.service.AuthenticationService;
@@ -28,7 +27,6 @@ public class AuthenticationServiceImpl implements AuthenticationService {
         Usuario user = new Usuario();
         user.setCorreo(signUpRequest.getCorreo());
         user.setContrasenia(signUpRequest.getContrasenia());
-        user.setRole(Role.USER);
         user.setContrasenia(passwordEncoder.encode(signUpRequest.getContrasenia()));
 
         return usuarioRepository.createUsuario(user);
