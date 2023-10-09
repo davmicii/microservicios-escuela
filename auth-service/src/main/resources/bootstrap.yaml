@@ -12,4 +12,4 @@ spring:
     driverClassName: com.microsoft.sqlserver.jdbc.SQLServerDriver
 
 jwt:
-  secret: secretkey
+  secret: e2v9Bw#R&ZK!W9GpF$L@1%JH5sP*UjYf
