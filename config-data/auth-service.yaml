@@ -22,19 +22,19 @@ spring:
           predicates:
             - Path=/maestro/**
           filters:
-            - AuthFilter
+            - JwtAuthenticationFilter
         - id: materia-service
           uri: lb://materia-service
           predicates:
             - Path=/materia/**
           filters:
-            - AuthFilter
+            - JwtAuthenticationFilter
         - id: alumno-service
           uri: lb://alumno-service
           predicates:
             - Path=/alumno/**
           filters:
-            - AuthFilter
+            - JwtAuthenticationFilter
         - id: auth-service
           uri: lb://auth-service
           predicates:
