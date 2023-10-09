@@ -1,11 +1,9 @@
 package com.escuela.authservice.controller;
 
-import com.escuela.authservice.dto.TokenDto;
-import com.escuela.authservice.dto.UsuarioDto;
+import com.escuela.authservice.dto.SignUpRequest;
 import com.escuela.authservice.entitie.Usuario;
-import com.escuela.authservice.service.UsuarioService;
+import com.escuela.authservice.service.AuthenticationService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -13,17 +11,14 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/auth")
 @RequiredArgsConstructor
 public class UsuarioController {
-    private final UsuarioService usuarioService;
+    private final AuthenticationService authenticationService;
 
     @PostMapping("/login")
-    public ResponseEntity<TokenDto> login(@RequestBody UsuarioDto dto){
-        TokenDto tokenDto = usuarioService.login(dto);
-        if(tokenDto == null)
-            return ResponseEntity.badRequest().build();
-        return ResponseEntity.ok(tokenDto);
+    public ResponseEntity<Usuario> login(@RequestBody SignUpRequest signUpRequest){
+        return ResponseEntity.ok(authenticationService.signup(signUpRequest));
     }
 
-    @PostMapping("/validate")
+    /*@PostMapping("/validate")
     public ResponseEntity<TokenDto> validate(@RequestParam String token){
         TokenDto tokenDto = usuarioService.validate(token);
         if(tokenDto == null)
@@ -37,5 +32,5 @@ public class UsuarioController {
         if(usuario == null)
             return ResponseEntity.badRequest().build();
         return ResponseEntity.ok(usuario);
-    }
+    }*/
 }
