@@ -1,5 +1,7 @@
 package com.escuela.authservice.controller;
 
+import com.escuela.authservice.dto.JwtAuthenticationResponse;
+import com.escuela.authservice.dto.SignInRequest;
 import com.escuela.authservice.dto.SignUpRequest;
 import com.escuela.authservice.entitie.Usuario;
 import com.escuela.authservice.service.AuthenticationService;
@@ -16,6 +18,11 @@ public class UsuarioController {
     @PostMapping("/login")
     public ResponseEntity<Usuario> login(@RequestBody SignUpRequest signUpRequest){
         return ResponseEntity.ok(authenticationService.signup(signUpRequest));
+    }
+
+    @PostMapping("register")
+    public ResponseEntity<JwtAuthenticationResponse> signin(@RequestBody SignInRequest signInRequest){
+        return ResponseEntity.ok(authenticationService.signin(signInRequest));
     }
 
     /*@PostMapping("/validate")

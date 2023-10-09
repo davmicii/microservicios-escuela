@@ -1,6 +1,10 @@
 package com.escuela.authservice.service;
 
+import com.escuela.authservice.entitie.Usuario;
 import org.springframework.security.core.userdetails.UserDetails;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public interface JWTService {
     String extractUserName(String token);
@@ -8,4 +12,6 @@ public interface JWTService {
     String generateToken(UserDetails userDetails);
 
     boolean isTokenValid(String token, UserDetails userDetails);
+
+    String generateRefreshToken(Map<String,Object> extraClaims, UserDetails userDetails);
 }
